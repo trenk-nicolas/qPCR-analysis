@@ -1,0 +1,31 @@
+# qPCR Analysis Pipeline
+
+This repository contains an R script for processing qPCR (StepOnePlus™ Real-Time PCR system) output data.  
+It implements the ΔΔCt method to calculate relative quantification (RQ) values, performs statistical comparisons, and generates publication-ready plots.
+
+---
+
+## Features
+- Cleans raw StepOnePlus qPCR output
+- Removes NTCs, empty wells, and late-amplifying housekeeping controls
+- Calculates ΔCt, ΔΔCt, and RQ values
+- Supports multiple experimental groups and genotypes
+- Log10 transformation of RQ for better group separation
+- Statistical testing (Shapiro–Wilk normality test, pairwise Wilcoxon comparisons)
+- Outputs:
+  - Statistical results (`.csv` or `.xlsx`)
+  - Boxplots with jittered replicates and baseline reference
+
+---
+
+## Requirements
+- R (≥ 4.0)
+- R packages:
+  - `tidyverse`
+  - `rstatix`
+  - `ggpubr`
+
+Install packages if not already available:
+```r
+install.packages(c("tidyverse", "rstatix", "ggpubr"))
+
